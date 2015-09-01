@@ -1,0 +1,962 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"int",
+				"into_owned               Function (borrow.rs) : pub fn into_owned(self) -> <B as ToOwned>::Owned             "
+			],
+			[
+				"di",
+				"dice_roll"
+			],
+			[
+				"Lxc",
+				"LxcCloneFlag   Enum (lib.rs) : pub enum LxcCloneFlag {  "
+			],
+			[
+				"confi",
+				"config_path_cstring    Let (lib.rs) : let config_path_cstring                                                "
+			],
+			[
+				"conf",
+				"config_path_cstring    Let (lib.rs) : let config_path_cstring                                                "
+			],
+			[
+				"l",
+				"LxcContainer              Struct (mod.rs) : pub struct LxcContainer {                                    "
+			],
+			[
+				"bdev",
+				"bdevdata_ptr     Let (lib.rs) : let bdevdata_ptr = match bdevdata {"
+			],
+			[
+				"lxc",
+				"lxcpath_ptr     Let (lib.rs) : let lxcpath_ptr = match lxcpath {"
+			],
+			[
+				"bdevda",
+				"bdevdata_cstring Let (lib.rs) : let mut bdevdata_cstring"
+			],
+			[
+				"lxcp",
+				"lxcpath_cstring Let (lib.rs) : let mut lxcpath_cstring"
+			],
+			[
+				"str",
+				"str_to_cstring Function (helper.rs) : pub fn str_to_cstring(s: &str) -> CString {               "
+			],
+			[
+				"arg",
+				"argv   FnArg (lib.rs) : argv                                   "
+			],
+			[
+				"bde",
+				"bdevtype   FnArg (lib.rs) : bdevtype  "
+			],
+			[
+				"con",
+				"config_path          FnArg (lib.rs) : config_path                                                            "
+			],
+			[
+				"bd",
+				"bdev_specs FnArg (lib.rs) : bdev_specs"
+			],
+			[
+				"b",
+				"bdevtype FnArg (lib.rs) : bdevtype"
+			],
+			[
+				"print",
+				"println!	println! …"
+			],
+			[
+				"as",
+				"as_ptr"
+			],
+			[
+				"pr",
+				"print_name"
+			],
+			[
+				"prin",
+				"println!	println! …"
+			],
+			[
+				"prn",
+				"println!	println! …"
+			],
+			[
+				"bezR",
+				"bezRangi"
+			],
+			[
+				"bezRa",
+				"bezRasy"
+			],
+			[
+				"x",
+				"xDelta"
+			],
+			[
+				"hexB",
+				"hexByte1"
+			],
+			[
+				"hex",
+				"hexByte2"
+			],
+			[
+				"num",
+				"num"
+			],
+			[
+				"pritn",
+				"printAllLists"
+			],
+			[
+				"del",
+				"delDirection"
+			],
+			[
+				"next",
+				"nextChar"
+			],
+			[
+				"nex",
+				"nextChar"
+			],
+			[
+				"has",
+				"hasNext"
+			],
+			[
+				"sor",
+				"sourceIn"
+			],
+			[
+				"deco",
+				"decodedIn"
+			],
+			[
+				"decod",
+				"decodingDictionary"
+			],
+			[
+				"dec",
+				"decodedName"
+			],
+			[
+				"de",
+				"decodingDictionary"
+			],
+			[
+				"enc",
+				"encodedIn"
+			],
+			[
+				"en",
+				"encodedName"
+			],
+			[
+				"le",
+				"letter"
+			],
+			[
+				"sta",
+				"statistics"
+			],
+			[
+				"sou",
+				"sourceName"
+			],
+			[
+				"encode",
+				"encodedIn"
+			],
+			[
+				"stat",
+				"statistics"
+			],
+			[
+				"decode",
+				"decodedIn"
+			],
+			[
+				"encoded",
+				"encodedName"
+			],
+			[
+				"sour",
+				"sourceIn"
+			],
+			[
+				"sourc",
+				"sourceIn"
+			],
+			[
+				"pri",
+				"printedCounter"
+			],
+			[
+				"enco",
+				"encodedIn"
+			],
+			[
+				"encod",
+				"encodedOrder"
+			],
+			[
+				"letter",
+				"letterCount"
+			],
+			[
+				"lett",
+				"letterCount"
+			],
+			[
+				"us",
+				"uselessStuff"
+			],
+			[
+				"let",
+				"letterCount"
+			],
+			[
+				"dedo",
+				"decodedName"
+			],
+			[
+				"result",
+				"result_rit"
+			],
+			[
+				"longer",
+				"longer_rit"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "platformio.ini",
+			"settings":
+			{
+				"buffer_size": 529,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/C++/C++ Single File.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Rust/Cargo.sublime-build",
+					""
+				],
+				[
+					"Packages/Rust/Cargo.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Rust/Cargo.sublime-build",
+					"Test"
+				],
+				[
+					"Packages/Rust/Rust.sublime-build",
+					""
+				],
+				[
+					"Packages/Rust/Rust.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/Rust/Cargo.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 393.0,
+		"last_filter": "install p",
+		"selected_items":
+		[
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"pack con en",
+				"Package Control: Enable Package"
+			],
+			[
+				"paca con di",
+				"Package Control: Disable Package"
+			],
+			[
+				"packa con en",
+				"Package Control: Enable Package"
+			],
+			[
+				"packa con di",
+				"Package Control: Disable Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"format",
+				"Clang Format: Format Selection"
+			],
+			[
+				"forma",
+				"Clang Format: Format Selection"
+			],
+			[
+				"form",
+				"Clang Format: Format Selection"
+			],
+			[
+				"for",
+				"Clang Format: Format Selection"
+			],
+			[
+				"clang",
+				"Clang Format: Format Selection"
+			],
+			[
+				"packa inst",
+				"Package Control: Install Package"
+			],
+			[
+				"set s ru",
+				"Set Syntax: Ruby"
+			],
+			[
+				"set syn r		",
+				"Set Syntax: Ruby"
+			],
+			[
+				"set syn ru",
+				"Set Syntax: Ruby"
+			],
+			[
+				"clan	",
+				"Clang Format: Format Selection"
+			],
+			[
+				"clan",
+				"Clang Format: Select Style"
+			],
+			[
+				"cl",
+				"Clang Format: Format Selection"
+			],
+			[
+				"set syntax jso",
+				"Set Syntax: JSON"
+			],
+			[
+				"set syntax js",
+				"Set Syntax: JSON"
+			],
+			[
+				"pretty",
+				"HTMLPrettify"
+			],
+			[
+				"html",
+				"HTMLPrettify"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"clang ",
+				"Clang Format: Format Selection"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/arccha/programowanie/rust-lxc/README.md",
+		"/home/arccha/programowanie/rust-lxc/src/ffi/mod.rs",
+		"/home/arccha/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/arccha/programowanie/rust-lxc/src/helper.rs",
+		"/home/arccha/programowanie/rust-lxc/src/lib.rs",
+		"/home/arccha/programowanie/rust-lxc/src/main.rs",
+		"/home/arccha/tmp/cos.cpp",
+		"/home/arccha/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/arccha/programowanie/rust-lxc/Vagrantfile",
+		"/home/arccha/programowanie/rust-lxc/provision.sh",
+		"/home/arccha/programowanie/rust-lxc/src/ffi/attach_options.rs",
+		"/home/arccha/programowanie/rust-lxc/test.c",
+		"/home/arccha/programowanie/rust-lxc/Cargo.toml",
+		"/home/arccha/programowanie/rust-lxc/src/ffi.rs",
+		"/home/arccha/.config/sublime-text-3/Packages/User/RustAutoComplete.sublime-settings",
+		"/home/arccha/programowanie/rust-lxc/src/test.c",
+		"/home/arccha/programowanie/rust-lxc/src/tmp1cnl6v",
+		"/home/arccha/programowanie/rust-lxc/Cargo.lock",
+		"/home/arccha/programowanie/rust-lxc/rust-lxc.sublime-project",
+		"/home/arccha/programowanie/studia/systemyOperacyjne/pipe.c",
+		"/home/arccha/programowanie/studia/systemyOperacyjne/ls_file.c",
+		"/home/arccha/tmp/plaidctf/ciphertext.txt",
+		"/home/arccha/tmp/plaidctf/pubkey.txt",
+		"/home/arccha/tmp/plaidctf/knapsack.py",
+		"/home/arccha/tmp/plaidctf/utils.py",
+		"/home/arccha/programowanie/studia/systemyOperacyjne/sieroty.c",
+		"/home/arccha/programowanie/studia/systemyOperacyjne/zombie.c",
+		"/home/arccha/programowanie/sieroty",
+		"/home/arccha/programowanie/sieroty.c",
+		"/home/arccha/programowanie/studia/programowanie2/D/circle.h",
+		"/home/arccha/programowanie/studia/programowanie2/D/circle.cpp",
+		"/home/arccha/programowanie/studia/programowanie2/D/graphicalDisplay.cpp",
+		"/home/arccha/programowanie/studia/programowanie2/D/rysowanie.sublime-project",
+		"/home/arccha/programowanie/studia/programowanie2/C/OslizglyOrk.h",
+		"/home/arccha/programowanie/studia/programowanie2/C/Ork.h",
+		"/home/arccha/programowanie/studia/programowanie2/C/OslizglyOrk.cpp",
+		"/home/arccha/programowanie/studia/programowanie2/C/main.cpp",
+		"/home/arccha/programowanie/studia/programowanie2/C/Ork.cpp",
+		"/home/arccha/programowanie/studia/programowanie2/C/Potwor.h",
+		"/home/arccha/programowanie/studia/programowanie2/C/Munchkin.h",
+		"/home/arccha/programowanie/studia/programowanie2/C/munchkin.sublime-project",
+		"/home/arccha/programowanie/studia/programowanie2/C/Potwor.cpp",
+		"/home/arccha/programowanie/studia/programowanie2/C/ZombieWSzelkachSandalach.h",
+		"/home/arccha/programowanie/studia/programowanie2/C/Zombie.h",
+		"/home/arccha/programowanie/studia/programowanie2/C/Zombie.cpp",
+		"/home/arccha/programowanie/studia/programowanie2/C/ZombieWSzelkach.h",
+		"/home/arccha/programowanie/studia/programowanie2/C/ZombieWSandalach.h",
+		"/home/arccha/programowanie/studia/programowanie2/C/ZombieWSzelkach.cpp",
+		"/home/arccha/programowanie/studia/programowanie2/C/ZombieWSandalach.cpp",
+		"/home/arccha/programowanie/studia/programowanie2/C/ZombieWSzelkachSandalach.cpp",
+		"/home/arccha/programowanie/studia/programowanie2/C/makefile",
+		"/home/arccha/programowanie/studia/programowanie2/C/RasaRanga.h",
+		"/home/arccha/programowanie/studia/programowanie2/C/Munchkin.cpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/RasaRanga.h",
+		"/home/arccha/programowanie/mastercoder2015/zad1/ZrzadzenieLosu.cpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/ZrzadzenieLosu.h",
+		"/home/arccha/programowanie/mastercoder2015/zad1/Tura.cpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/Tura.h",
+		"/home/arccha/programowanie/mastercoder2015/zad1/OslizglyOrk.cpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/OslizglyOrk.h",
+		"/home/arccha/programowanie/mastercoder2015/zad1/ZombieWSzelkachSandalach.cpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/ZombieWSzelkachSandalach.h",
+		"/home/arccha/programowanie/mastercoder2015/zad1/ZombieWSandalach.cpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/ZombieWSandalach.h",
+		"/home/arccha/programowanie/mastercoder2015/zad1/ZombieWSzelkach.cpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/ZombieWSzelkach.h",
+		"/home/arccha/programowanie/mastercoder2015/zad1/Ork.cpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/Ork.h",
+		"/home/arccha/programowanie/mastercoder2015/zad1/Munchkin.cpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/Munchkin.h",
+		"/home/arccha/programowanie/mastercoder2015/zad1/Zombie.cpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/Zombie.h",
+		"/home/arccha/programowanie/mastercoder2015/zad1/Potwor.cpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/Potwor.h",
+		"/home/arccha/programowanie/mastercoder2015/zad1/makefile",
+		"/home/arccha/programowanie/mastercoder2015/zad1/HuffmanTree.hpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/FileStatistics.cpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/FileStatistics.hpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/compress.cpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/HuffmanTree.cpp",
+		"/home/arccha/programowanie/mastercoder2015/zad1/zad1.sublime-workspace",
+		"/home/arccha/tmp/Riverside/parser.rb",
+		"/home/arccha/programowanie/arduino/rfidReader/src/main.cpp",
+		"/home/arccha/programowanie/pirouter/Vagrantfile",
+		"/home/arccha/programowanie/studia/harnas/harnas-checker/README.md",
+		"/home/arccha/programowanie/studia/harnas/harnas-checker/Vagrantfile",
+		"/home/arccha/programowanie/studia/harnas/README.md",
+		"/home/arccha/programowanie/studia/harnas/Vagrantfile",
+		"/home/arccha/programowanie/studia/harnas/worker_install_packages.sh",
+		"/home/arccha/programowanie/studia/harnas/worker_env_setup.sh",
+		"/home/arccha/programowanie/studia/programowanie1/I/ex.in",
+		"/home/arccha/programowanie/studia/programowanie1/I/Makefile",
+		"/home/arccha/programowanie/studia/programowanie1/I/I.cpp",
+		"/home/arccha/programowanie/algocreations/inkrunner/assets/skin/inkrunner.json",
+		"/home/arccha/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/home/arccha/programowanie/studia/programowanie1/H/Makefile",
+		"/home/arccha/programowanie/studia/programowanie1/H/preptest.sh",
+		"/home/arccha/programowanie/studia/programowanie1/H/wejscie1.txt",
+		"/home/arccha/programowanie/studia/programowanie1/H/H.cpp",
+		"/home/arccha/programowanie/studia/programowanie1/H/ex0.statistics",
+		"/home/arccha/programowanie/studia/programowanie1/H/ex0.learn",
+		"/home/arccha/programowanie/studia/programowanie1/H/ex0.encoded",
+		"/home/arccha/programowanie/studia/programowanie1/H/ex0.in",
+		"/home/arccha/programowanie/studia/programowanie1/H/t.cpp",
+		"/home/arccha/programowanie/studia/programowanie1/G/functions.hpp",
+		"/home/arccha/programowanie/studia/programowanie1/G/Makefile",
+		"/home/arccha/programowanie/studia/programowanie1/G/main.cpp",
+		"/home/arccha/programowanie/studia/programowanie1/G/functions.cpp",
+		"/home/arccha/Downloads/listaJednokierunkowa1.cpp",
+		"/home/arccha/programowanie/studia/programowanie1/D/D.cpp",
+		"/home/arccha/tmp/server5.c",
+		"/home/arccha/tmp/server3.c",
+		"/home/arccha/programowanie/studia/programowanie1/B/B.cpp",
+		"/home/arccha/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/arccha/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 42.0
+	},
+	"find_in_files":
+	{
+		"height": 108.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Start",
+			"create",
+			"argv",
+			"argv_option",
+			"create",
+			"ctrl+alt+",
+			"*",
+			"pub struct",
+			"snapshot",
+			"BDevSpecs",
+			"bdev_specs",
+			"create(",
+			"706",
+			"create",
+			"new",
+			"self.container",
+			"tmp",
+			"argv",
+			"u8",
+			"<**",
+			";",
+			"pub",
+			"int i = 0;\n    while(i < 1e8)\n      ++i;",
+			"Oslizgly_ork",
+			"Ork",
+			"Potwor",
+			"potwor",
+			"Potwor",
+			"Zombie_w_sandalach",
+			"#pragma once\n#include \"ZombieWSzelkach.h\"\n#include \"ZombieWSandalach.h\"\n\nclass Zombie_w_sandalach : public Zombie_w_szelkach, public Zombie_w_sandalach {\npublic:\n  Zombie_w_sandalach();\n  Zombie_w_sandalach(int poziom);\n  Zombie_w_sandalach(int poziom, Rasa rasa);\n  Zombie_w_sandalach(int poziom, Ranga ranga);\n  Zombie_w_sandalach(Rasa rasa, Ranga ranga);\n  Zombie_w_sandalach(int poziom, Rasa rasa, Ranga ranga);\n  ~Zombie_w_sandalach();\n};",
+			"Zombie_w_sandalach",
+			"Zombie_w_szelkach",
+			"ZombieWSzelkach",
+			"Zombie",
+			"zombie",
+			"Zombie",
+			"Potwor",
+			"/*",
+			"packet",
+			"worker",
+			"&",
+			" - ",
+			"\\ \\-\\ ",
+			"\\ -\\ ",
+			"decodedIn",
+			"encodedIn",
+			"decodingDictionary",
+			"50",
+			"read",
+			"feof",
+			"NULL",
+			"}\n",
+			"endl",
+			"ofstream",
+			"ostream",
+			"entry",
+			"();\n",
+			"result",
+			"*result",
+			"result",
+			"t",
+			"quick",
+			"n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"-",
+			"\"\\n\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "platformio.ini",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 529,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 166.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "lock.sublime-project",
+	"replace":
+	{
+		"height": 74.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"hel",
+				"src/helper.rs"
+			],
+			[
+				"pro",
+				"provision.sh"
+			],
+			[
+				"li",
+				"src/lib.rs"
+			],
+			[
+				"ma",
+				"src/main.rs"
+			],
+			[
+				"v",
+				"Vagrantfile"
+			],
+			[
+				"he",
+				"src/helper.rs"
+			],
+			[
+				"mai",
+				"src/main.rs"
+			],
+			[
+				"at",
+				"src/ffi/attach_options.rs"
+			],
+			[
+				"lib",
+				"src/lib.rs"
+			],
+			[
+				"m",
+				"src/main.rs"
+			],
+			[
+				"mod",
+				"src/ffi/mod.rs"
+			],
+			[
+				"ffi/",
+				"src/ffi/mod.rs"
+			],
+			[
+				"te",
+				"~/programowanie/rust-lxc/test.c"
+			],
+			[
+				"ff",
+				"~/programowanie/rust-lxc/src/ffi.rs"
+			],
+			[
+				"car",
+				"Cargo.toml"
+			],
+			[
+				"f",
+				"src/ffi.rs"
+			],
+			[
+				"h",
+				"src/helper.rs"
+			],
+			[
+				"l",
+				"src/lib.rs"
+			],
+			[
+				"",
+				"src/lib.rs"
+			],
+			[
+				"cir",
+				"circle.h"
+			],
+			[
+				"gra",
+				"graphicalDisplay.cpp"
+			],
+			[
+				"main",
+				"main.cpp"
+			],
+			[
+				"osli",
+				"OslizglyOrk.cpp"
+			],
+			[
+				"o",
+				"OslizglyOrk.h"
+			],
+			[
+				"ork",
+				"Ork.h"
+			],
+			[
+				"ol",
+				"OslizglyOrk.h"
+			],
+			[
+				"os",
+				"OslizglyOrk.cpp"
+			],
+			[
+				"potw",
+				"Potwor.cpp"
+			],
+			[
+				"or",
+				"Ork.h"
+			],
+			[
+				"zombie",
+				"ZombieWSzelkachSandalach.cpp"
+			],
+			[
+				"zombiewszle",
+				"ZombieWSzelkach.h"
+			],
+			[
+				"zombiewsa",
+				"ZombieWSandalach.h"
+			],
+			[
+				"zombi",
+				"ZombieWSzelkachSandalach.cpp"
+			],
+			[
+				"zomibe",
+				"ZombieWSandalach.cpp"
+			],
+			[
+				"make",
+				"makefile"
+			],
+			[
+				"zombiew",
+				"ZombieWSandalach.cpp"
+			],
+			[
+				"zomb",
+				"ZombieWSzelkach.h"
+			],
+			[
+				"zom",
+				"ZombieWSzelkach.cpp"
+			],
+			[
+				"zombie.",
+				"Zombie.h"
+			],
+			[
+				"man",
+				"main.cpp"
+			],
+			[
+				"po",
+				"Potwor.h"
+			],
+			[
+				"poo",
+				"Potwor.h"
+			],
+			[
+				"pot",
+				"Potwor.h"
+			],
+			[
+				"rasa",
+				"RasaRanga.h"
+			],
+			[
+				"munc",
+				"Munchkin.cpp"
+			],
+			[
+				"mu",
+				"Munchkin.cpp"
+			],
+			[
+				"mun",
+				"Munchkin.h"
+			],
+			[
+				"ex",
+				"~/programowanie/studia/programowanie1/H/ex0.in"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 501.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 381.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 172.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
