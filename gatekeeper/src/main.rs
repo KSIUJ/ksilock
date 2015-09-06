@@ -5,6 +5,7 @@ use std::net::SocketAddr;
 use std::net::IpAddr;
 use std::str::FromStr;
 use std::fmt;
+use std::io;
 
 enum Message {
   Auth {
@@ -27,19 +28,20 @@ impl fmt::Debug for Message {
   }
 }
 
-fn get_message_from_socket(sock: &UdpSocket) -> Message {
+fn get_message_from_socket(sock: &UdpSocket) -> io::Result<Message> {
   let mut buff = [0; 128];
-  let (amt, src) = sock.recv_from(&mut buff).unwrap();
+  let (amt, src) = try!(sock.recv_from(&mut buff));
   let msg_type = buff[0];
   match msg_type {
-    1 => Message::Auth {
-          src: src,
-          amt: amt,
-          card_id: buff[1..5].iter()
-                             .map(|b| format!("{:02X}", b))
-                             .collect(),
-        },
-    _ => panic!("Unknown packet type. Panic for now..."),
+    1 => Ok(Message::Auth {
+            src: src,
+            amt: amt,
+            card_id: buff[1..5].iter()
+                               .map(|b| format!("{:02X}", b))
+                               .collect(),
+         }),
+    _ => Err(io::Error::new(io::ErrorKind::InvalidData,
+                            "Packet type not known.")),
   }
 }
 
@@ -53,7 +55,9 @@ fn main() {
   let srv_sock = UdpSocket::bind(srv_addr).unwrap();
 
   loop {
-    let msg = get_message_from_socket(&srv_sock);
-    println!("{:?}", msg);
+    match get_message_from_socket(&srv_sock) {
+      Ok(msg) => println!("{:?}", msg),
+      Err(e) => println!("{:?}", e),
+    }
   }
 }
