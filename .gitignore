@@ -1,2 +1,5 @@
 .pioenvs
 .sconsign.dblite
+*.sublime-workspace
+*.lock
+target/

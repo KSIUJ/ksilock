@@ -61,14 +61,13 @@ void loop(void) {
     do {
       success = udp.beginPacket(IPAddress(192,168,88,4),7777);
     } while (!success);
-  
+    
+    udp.write("CARD_ID ");
     for(int i = 0; i < 4; ++i) {
-      int older = uid[i] >> 4 & 0x0F + '0';
-      int younger = uid[i] & 0x0F + '0';
-      udp.write((int)'A');
-      udp.write((int)'B');
+      udp.write(uid[i]);
     }
-    udp.endPacket();
+    int res = udp.endPacket();
+    Serial.print("Packet "); Serial.println(res);
   }
   delay(1000);
 }
