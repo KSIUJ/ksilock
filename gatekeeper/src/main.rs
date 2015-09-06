@@ -6,28 +6,40 @@ use std::net::IpAddr;
 use std::str::FromStr;
 use std::fmt;
 
-struct Message {
-  amt: usize,
-  src: SocketAddr,
-  data: [u8; 128],
+enum Message {
+  Auth {
+    src: SocketAddr,
+    amt: usize,
+    card_id: String,
+  },
 }
 
 impl fmt::Debug for Message {
   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-    f.debug_struct("Message")
-      .field("amt", &self.amt)
-      .field("src", &self.src)
-      .finish()
+    match *self {
+      Message::Auth { src, amt, ref card_id } =>
+                      f.debug_struct("Message::Auth")
+                        .field("From", &src)
+                        .field("Bytes received", &amt)
+                        .field("Card id", &card_id)
+                        .finish(),
+    }
   }
 }
 
 fn get_message_from_socket(sock: &UdpSocket) -> Message {
   let mut buff = [0; 128];
   let (amt, src) = sock.recv_from(&mut buff).unwrap();
-  Message {
-    amt: amt,
-    src: src,
-    data: buff,
+  let msg_type = buff[0];
+  match msg_type {
+    1 => Message::Auth {
+          src: src,
+          amt: amt,
+          card_id: buff[1..5].iter()
+                             .map(|b| format!("{:02X}", b))
+                             .collect(),
+        },
+    _ => panic!("Unknown packet type. Panic for now..."),
   }
 }
 

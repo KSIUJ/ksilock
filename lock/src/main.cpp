@@ -44,6 +44,8 @@ void setup() {
   Serial.println(Ethernet.localIP());
 }
 
+const static uint8_t AUTH = 1;
+
 void loop(void) {
   int success;
   uint8_t uid[] = { 0, 0, 0, 0, 0, 0, 0 };  
@@ -62,7 +64,7 @@ void loop(void) {
       success = udp.beginPacket(IPAddress(192,168,88,4),7777);
     } while (!success);
     
-    udp.write("CARD_ID ");
+    udp.write(AUTH);
     for(int i = 0; i < 4; ++i) {
       udp.write(uid[i]);
     }
