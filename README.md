@@ -1,7 +1,7 @@
 # KSI Lock
 
 This project focuses on creating solution for managing access to KSI places.
-It is splitted int two parts:
+It is splitted into two parts:
 *   lock - software for arduino, responsible for communicating with RFID reader and ethernet module
 *   gatekeeper - system daemon, responsible for receiving messages from lock and for authentication and authorization
 
