@@ -2,3 +2,6 @@
 name = "gatekeeper"
 version = "0.1.0"
 authors = ["Adam Piekarczyk <adam1piekarczyk@gmail.com>"]
+
+[dependencies]
+config = "0.1.1"

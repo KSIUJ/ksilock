@@ -1,5 +1,7 @@
 #![feature(ip_addr)]
 
+extern crate config;
+
 use std::net::UdpSocket;
 use std::net::SocketAddr;
 use std::net::IpAddr;
@@ -46,13 +48,36 @@ fn get_message_from_socket(sock: &UdpSocket) -> io::Result<Message> {
 }
 
 fn main() {
-  let lock_ip: IpAddr = FromStr::from_str("192.168.88.37").unwrap();
-  let lock_addr = SocketAddr::new(lock_ip, 7777);
-
-  let srv_ip: IpAddr = FromStr::from_str("192.168.88.4").unwrap();
-  let srv_addr = SocketAddr::new(srv_ip, 7777);
-
-  let srv_sock = UdpSocket::bind(srv_addr).unwrap();
+  use std::path::Path;
+  use config::reader;
+  
+  let config_path = Path::new("gatekeeper.cfg");
+  let config = reader::from_file(config_path)
+                        .unwrap_or_else(
+                          |e| panic!("Config file not found or malformed.\n\
+                                     Original error: {:?}", e));
+  
+  let port = config.lookup_integer32("port")
+                   .unwrap_or_else(|| panic!("port var not found."))
+                   as u16;
+  let lock_ip_str = config.lookup_str("lock_ip")
+                          .unwrap_or_else(|| panic!("lock_ip var not found."));
+  let lock_ip: IpAddr = FromStr::from_str(lock_ip_str)
+                                  .unwrap_or_else(
+                                    |e| panic!("Error parsing lock ip.\n\
+                                               Original error {:?}", e));
+  let lock_addr = SocketAddr::new(lock_ip, port);
+  let srv_ip_str = config.lookup_str("srv_ip")
+                          .unwrap_or_else(|| panic!("srv_ip var not found."));
+  let srv_ip: IpAddr = FromStr::from_str(srv_ip_str)
+                                  .unwrap_or_else(
+                                    |e| panic!("Error parsing srv ip.\n\
+                                               Original error {:?}", e));
+  let srv_addr = SocketAddr::new(srv_ip, port);
+  let srv_sock = UdpSocket::bind(srv_addr)
+                              .unwrap_or_else(
+                                |e| panic!("Failed to bind to socket.\n\
+                                           Original error: {:?}", e));
 
   loop {
     match get_message_from_socket(&srv_sock) {
