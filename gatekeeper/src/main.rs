@@ -3,6 +3,7 @@
 
 extern crate config;
 extern crate postgres;
+extern crate crypto;
 
 use std::net::UdpSocket;
 use std::net::SocketAddr;
@@ -33,14 +34,33 @@ impl fmt::Debug for Message {
 }
 
 fn get_message_from_socket(sock: &UdpSocket) -> io::Result<Message> {
-  let mut buff = [0; 128];
-  let (amt, src) = try!(sock.recv_from(&mut buff));
-  let msg_type = buff[0];
+  use crypto::{aes, blockmodes, buffer};
+  use crypto::symmetriccipher::Decryptor;
+  
+  let key = [
+    0x52, 0x19, 0x08, 0xA8, 0x2F, 0x52, 0x78, 0x6E,
+    0x80, 0x6D, 0x33, 0x34, 0xC4, 0x81, 0x86, 0xA4,
+    0x0B, 0xAA, 0x40, 0x0D, 0x1A, 0x3F, 0xF4, 0x66,
+    0x83, 0xD7, 0x34, 0x17, 0x9A, 0x67, 0x41, 0xF4,
+  ];
+  let mut decryptor = aes::ecb_decryptor(aes::KeySize::KeySize256,
+                                     &key,
+                                     blockmodes::NoPadding);
+
+  let mut encrypted = [0; 128];
+  let mut decrypted = [0; 128];
+  let (amt, src) = try!(sock.recv_from(&mut encrypted));
+  {
+    let mut decrypted_buff = buffer::RefWriteBuffer::new(&mut decrypted);
+    let mut encrypted_buff = buffer::RefReadBuffer::new(&encrypted);
+    decryptor.decrypt(&mut encrypted_buff, &mut decrypted_buff, true);
+  }
+  let msg_type = decrypted[0];
   match msg_type {
     1 => Ok(Message::Auth {
             src: src,
             amt: amt,
-            card_id: buff[1..5].iter()
+            card_id: decrypted[1..5].iter()
                                .map(|b| format!("{:02X}", b))
                                .collect(),
          }),
@@ -95,7 +115,7 @@ fn main() {
                           .unwrap();
 
   let auth_statement = conn.prepare("SELECT name, surname, card_id FROM USERS \
-                                     WHERE card_id = '$1'").unwrap();
+                                     WHERE card_id = $1").unwrap();
 
   loop {
     match get_message_from_socket(&srv_sock) {
