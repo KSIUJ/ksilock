@@ -6,3 +6,6 @@ authors = ["Adam Piekarczyk <adam1piekarczyk@gmail.com>"]
 [dependencies.config]
 git = "https://github.com/filipegoncalves/rust-config"
 rev = "beed106c745929824a5e3c58c15a33ce32afb257"
+
+[dependencies]
+postgres = "~0.9.6"

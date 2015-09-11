@@ -1,6 +1,8 @@
 #![feature(ip_addr)]
+#![feature(convert)]
 
 extern crate config;
+extern crate postgres;
 
 use std::net::UdpSocket;
 use std::net::SocketAddr;
@@ -50,6 +52,7 @@ fn get_message_from_socket(sock: &UdpSocket) -> io::Result<Message> {
 fn main() {
   use std::path::Path;
   use config::reader;
+  use postgres::{Connection, SslMode};
   
   let config_path = Path::new("gatekeeper.cfg");
   let config = reader::from_file(config_path)
@@ -79,9 +82,39 @@ fn main() {
                                 |e| panic!("Failed to bind to socket.\n\
                                            Original error: {:?}", e));
 
+  let dbhost = config.lookup_str("dbhost").unwrap();
+  let dbname = config.lookup_str("dbname").unwrap();
+  let dbuser = config.lookup_str("dbuser").unwrap();
+  let dbpass = config.lookup_str("dbpass").unwrap();
+  let conn = Connection::connect(format!("postgres://{}:{}@{}/{}",
+                                         dbuser,
+                                         dbpass,
+                                         dbhost,
+                                         dbname).as_str(),
+                                 &SslMode::None)
+                          .unwrap();
+
+  let auth_statement = conn.prepare("SELECT name, surname, card_id FROM USERS \
+                                     WHERE card_id = '$1'").unwrap();
+
   loop {
     match get_message_from_socket(&srv_sock) {
-      Ok(msg) => println!("{:?}", msg),
+      Ok(msg) => {  
+        println!("{:?}", msg);
+        match msg {
+          Message::Auth { card_id, .. } => {
+            let rows = auth_statement.query(&[&card_id]).unwrap();
+            if rows.len() == 1 {
+              let row = rows.get(0);
+              let name: String = row.get(0);
+              let surname: String = row.get(1);
+              println!("Access granted for user {} {}.", name, surname);
+            } else {
+              println!("Unknown card with id: {}.", card_id);
+            }
+          },
+        }
+      },
       Err(e) => println!("{:?}", e),
     }
   }
