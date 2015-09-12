@@ -106,8 +106,10 @@ void loop(void) {
   if (success) {
     #ifdef DEBUG
     Serial.println("Found an ISO14443A card");
-    Serial.print("  UID Length: "); Serial.print(uidLength, DEC); Serial.println(" bytes");
-    Serial.print("  UID Value: "); nfc.PrintHex(uid, uidLength); Serial.println("");
+    Serial.print("  UID Length: "); Serial.print(uidLength, DEC);
+    Serial.println(" bytes");
+    Serial.print("  UID Value: "); nfc.PrintHex(uid, uidLength);
+    Serial.println("");
     #endif
 
     prepare_auth_msg(uid, buffer);
