@@ -8,8 +8,7 @@ using namespace std;
 // #define DEBUG
 
 // Networking
-UIPEthernetClass UIPEthernet(PA_7, PA_6, PA_5, PB_6);
-// UIPEthernetClass UIPEthernet(PB_15, PB_14, PB_13, PB_2); //mosi, miso, sck, cs
+UIPEthernetClass UIPEthernet(PA_7, PA_6, PA_5, PB_6); //mosi, miso, sck, cs
 const uint8_t MAC[6] = { 0x00, 0x80, 0x48, 0xba, 0xd1, 0x30 };
 const IPAddress IP(192,168,0,108);
 const IPAddress DNS(149,156,65,10);
@@ -108,8 +107,9 @@ bool authorizeNFCTag(uint8_t* uid) {
   serial.printf("Connected to remote server.\n");
   #endif
   uint8_t* buff = (uint8_t*) calloc(200, sizeof(uint8_t));
+  const char* format = "GET http://149.156.65.221/authorize.json?card_id=%02x%02x%02x%02x HTTP/1.0\n\n";
   sprintf((char *) buff,
-          "GET http://149.156.65.221/authorize.json?card_id=%02x%02x%02x%02x HTTP/1.0\n\n",
+          format,
           uid[0],
           uid[1],
           uid[2],
@@ -118,7 +118,9 @@ bool authorizeNFCTag(uint8_t* uid) {
   free(buff);
 
   uint32_t bytes = 0;
+  #ifdef DEBUG
   uint32_t retries = 0;
+  #endif
   while(!(bytes = client.available())) {
     wait_ms(100);
     #ifdef DEBUG
@@ -135,13 +137,21 @@ bool authorizeNFCTag(uint8_t* uid) {
     if(buff[9] == '2' && buff[10] == '0' && buff[11] == '0') {
       flag = true;
     }
-  } while (bytes = client.available());
+  } while ((bytes = client.available()));
   free(buff);
   return flag;
 }
 
+void unlock() {
+  lock_signal = 1;
+  led_red = 0;
+  wait_ms(3000);
+  lock_signal = 0;
+  led_green = 0;
+}
+
 int main() {
-  long long cycles_till_restart = 2 * 60 * 60 * 6;
+  int32_t cycles_till_restart = 2 * 60 * 60 * 6;
   setupNFC();
   setupEthernet();
   #ifdef DEBUG
@@ -153,12 +163,8 @@ int main() {
     if (!isNFCTagNull(uid)) {
       led_green = 1;
       led_red = 1;
-      if(authorizeNFCTag(uid)) {
-        lock_signal = 1;
-        led_red = 0;
-        wait_ms(3000);
-        lock_signal = 0;
-        led_green = 0;
+      if (authorizeNFCTag(uid)) {
+        unlock();
       }
       else {
         led_green = 0;
@@ -166,28 +172,14 @@ int main() {
         led_red = 0;
       }
     }
-    // if (!isNFCTagNull(uid)) {
-    //   led_green = 1;
-    //   led_red = 1;
-    //   wait_ms(2000);
-    //   led_red = 0;
-    //   led_green = 0;
-    // }
     wait_ms(500);
     
-    //             _                                                            _        _   _         
-    //            | |                                                          ( )      (_) | |        
-    //   __ _   __| |  __ _  _ __ ___    ____ _ __ ___    ___  _ __  __ _   ___|/ _   _  _  | |_  ___  
-    //  / _` | / _` | / _` || '_ ` _ \  |_  /| '_ ` _ \  / _ \| '__|/ _` | / _ \ | | | || | | __|/ _ \ 
-    // | (_| || (_| || (_| || | | | | |  / / | | | | | ||  __/| |  | (_| ||  __/ | |_| || | | |_| (_) |
-    //  \__,_| \__,_| \__,_||_| |_| |_| /___||_| |_| |_| \___||_|   \__, | \___|  \__,_|| |  \__|\___/ 
-    //                                                               __/ |             _/ |            
-    //                                                              |___/             |__/             
-    // i zaprogramuj STMa na to
-
-    if (--cycles_till_restart < 0)
-      mbed_reset();
-    
+    if (--cycles_till_restart < 0) {
+      led_green = 1;
+      wait_ms(300);
+      led_green = 0;
+      NVIC_SystemReset();
+    }
   }
   return 0;
 }
