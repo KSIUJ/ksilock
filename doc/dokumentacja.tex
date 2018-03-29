@@ -1,0 +1,137 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+% \usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[polish]{babel}
+
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{Koło Studentów Informatyki Uniwersytetu Jagiellońskiego} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Dokumentacja techniczna zamka elektronicznego \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{} % Your name
+
+\date{\normalsize5 maja 2015} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle
+
+Niniejsza dokumentacja stanowi załącznik do podania, datowanego na 5 maja 2015 roku, do Pana Dziekana Macieja Ślusarka.
+
+\section{Wstęp}
+
+Na wstępie chcemy umotywować chęć zainstalowania zamka elektronicznego własnej konstrukcji. Posiadanie takiego zamka w siedzibie koła
+umożliwi nam łatwiejszą kontrolę nad tym, kto przebywa w kole oraz uprości zarządzanie kluczem - nie będzie więcej zachodzić potrzeba
+wypożyczania klucza z portiernii wydziału pod zastaw legitymacji, co obecnie sprawia drobne kłopoty. Proponujemy własną
+konstrukcję zamka, ponieważ jako kart dostępowych chcemy użyć Elektronicznej Legitymacji Studenckiej (zwanej dalej ELS), którą ma każdy
+członek naszego koła - dzięki temu zminimalizujemy koszty wdrożenia. Niestety, wyklucza to zastosowanie systemu, który obecnie jest używany
+na wydziale, ponieważ z tego co wiemy, używa on kart innego typu, które nie są kompatybilne z ELS. Oprócz tego, możemy stworzyć system,
+który będzie w pełni spełniał nasze oczekiwania, przykładowo będzie łączył się z centralnie zarządzaną bazą użytkowników osadzoną w naszej
+serwerowni.
+
+%------------------------------------------------
+
+\section{Zasada działania}
+
+Zamek będzie pracował w trybie standardowo zamkniętym, tzn. w wypadku braku prądu drzwi pozostaną zamknięte.
+
+\paragraph{Otwieranie z zewnątrz}
+
+Istnieją dwie możliwości - za pomocą karty lub za pomocą klucza. W przypadku karty wystarczy przyłożyć ją do czytnika, ten po dokonaniu
+autoryzacji zwolni blokadę drzwi podając napięcie na elektrozaczep. Kluczem dalej będzie można otworzyć drzwi przekręcając go w zamku do
+oporu.
+
+\paragraph{Otwieranie z wewnątrz}
+
+Wystarczy nacisnąć klamkę, ponieważ elektrozaczep blokuje język zamka, który się chowa. Ten fakt sprawia, że proponowane przez nas rozwiązanie
+jest zupełnie bezpieczne i nie powoduje żadnych dodatkowych kłopotów w przypadku potrzeby szybkiego opuszczenia pomieszczenia.
+
+\paragraph{Zamykanie}
+
+Drzwi wystarczy zatrzasnąć. Niepożądane jest zamykanie na klucz, co jest oczywiście dalej możliwe, jednak powoduje to stałą blokadę drzwi.
+
+%------------------------------------------------
+
+\section{Moduły}
+
+\paragraph{Czytnik}
+
+Czytnik kart będzie oparty o układ PN532, który potrafi odczytywać karty pracujące na częstotliwości 13,56MHz (czyli ELS), przetestowaliśmy moduł
+ITEAD PN532 NFC.
+
+\paragraph{Mikrokontroler}
+
+Jako mikrokontrolera zarządzającego zamkniem chcemy użyć jednej z mniejszych wersji Arduino, np. Arduino Nano. Zamierzamy dobrać do
+niego moduł ethernetu, aby umożliwić komunikację z zewnętrznym serwerem. Cała komunikacja będzie się odbywać za pomocą SPI.
+
+\paragraph{Elektrozaczep}
+
+Wybór konkretnego modelu elektrozaczepu zamierzamy omówić z Administratorem WMiI.
+
+\section{Potrzebne modyfikacje}
+
+Wprowadzenie systemu wymaga kilku modyfikacji istniejącej infrastruktury:
+\begin{itemize}
+ \item zainstalowania elektrozaczepu we framudze drzwi
+ \item wyprowadzenia na zewnątrz czytnika kart
+ \item doprowadzenia zasilania
+ \item zlikwidowania zewnętrznej klamki
+ \item doprowadzenia ethernetu (możliwe jest położenie go z wnętrza koła)
+\end{itemize}
+
+\end{document}
