@@ -9,8 +9,8 @@ Our student ID cards will be used as keys to the lock. They are equipped
 with 13.56MHz RFID tag, Classic MiFare.
 
 Software is written in C++ using platformio.org as a library manager. Libraries used:
-*   [UIPEthernet](http://platformio.org/#!/lib/show/91/UIPEthernet)
-*   [Adafruit-PN532](http://platformio.org/#!/lib/show/29/Adafruit-PN532)
+*   [UIPEthernet](https://platformio.org/lib/show/2813/UIPEthernet)
+*   [Adafruit-PN532](https://platformio.org/lib/show/4420/pn532)
 
 # Authors
 
