@@ -1,3 +1,4 @@
+#pragma once
 #include <pn532.h>
 
 namespace nfc {

@@ -1,3 +1,5 @@
+#pragma once
+
 namespace util {
 template<class T>
 void light_up(T& led) {
