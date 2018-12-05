@@ -21,9 +21,9 @@ void setup(PN532& rfid) {
   rfid.SAMConfig();
 }
 
-void read_nfc_tag(PN532& rfid, uint8_t (&uid)[7], uint8_t& uid_length) {
+void read_nfc_tag(PN532& rfid, uid& uid, uint8_t& uid_length) {
   uint16_t timeout = 1000;
-  rfid.readPassiveTargetID(PN532_MIFARE_ISO14443A, static_cast<uint8_t*>(uid), &uid_length, timeout);
+  rfid.readPassiveTargetID(PN532_MIFARE_ISO14443A, uid.data(), &uid_length, timeout);
   #ifdef DEBUG
   if (uid_length == 4) {
     serial.printf("Found Mifare Classic card.");
@@ -37,7 +37,7 @@ void read_nfc_tag(PN532& rfid, uint8_t (&uid)[7], uint8_t& uid_length) {
   #endif
 }
 
-bool is_rfid_tag_null(uint8_t (&uid)[7]) {
+bool is_rfid_tag_null(uid& uid) {
   if (uid[0] == 0 && uid[1] == 0 && uid[2] == 0 && uid[3] == 0 && uid[4] == 0 && uid[5] == 0 && uid[6] == 0)
     return true;
   return false;

@@ -1,3 +1,4 @@
+#include <array>
 #include <mbed.h>
 #include <UIPEthernet.h>
 #include <pn532.h>
@@ -38,7 +39,7 @@ int main() {
   serial.printf("Initialization done.");
   #endif
   while (true) {
-    uint8_t uid[] = { 0, 0, 0, 0, 0, 0, 0 };
+    nfc::uid uid{{0, 0, 0, 0, 0, 0, 0}}; 
     uint8_t uid_lenght = 0;
     nfc::read_nfc_tag(rfid, uid, uid_lenght);
     if (!nfc::is_rfid_tag_null(uid)) {
