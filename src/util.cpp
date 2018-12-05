@@ -14,7 +14,7 @@ void unlock_and_signal(DigitalOut& lock, DigitalOut& led_green, DigitalOut& led_
   led_green = 0;
 }
 
-void refuse_signal(DigitalOut& led_green, DigitalOut& led_red) {
+void refuse_and_signal(DigitalOut& led_green, DigitalOut& led_red) {
   led_green = 0;
   wait_ms(1000);
   led_red = 0;
@@ -38,5 +38,18 @@ void attempt_device_reset(std::function<void(void)> signal) {
     signal();
     NVIC_SystemReset();
   }
+}
+
+void format_authorization_request(std::array<uint8_t, 200>& buff, IPAddress& server_ip, nfc::uid& uid) {
+  const char* format = "GET http://%s/lock/authorize"
+                       "?card_id=%02x%02x%02x%02x HTTP/1.0\n\n"; 
+  sprintf(
+      reinterpret_cast<char*>(buff.data()),
+      format,
+      server_ip.toString(),
+      uid[0],
+      uid[1],
+      uid[2],
+      uid[3]);
 }
 }
