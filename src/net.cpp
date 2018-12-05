@@ -40,10 +40,10 @@ void read_response(EthernetClient& client, std::array<uint8_t, 200>& buff) {
       break;
     }
     client.read(buff.data() + i, size);
-    i += size;
     #ifndef NDEBUG
     serial.printf("%s", reinterpret_cast<char*>(buff.data() + i));
     #endif
+    i += size;
   }
 }
 
